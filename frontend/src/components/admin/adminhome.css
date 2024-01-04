@@ -1,0 +1,80 @@
+.log-out-text{
+    text-align: center;
+    font-size:20px;
+    font-weight:500;
+    margin-top:50px;
+    color:#000;
+}
+
+.log-out{
+    display: flex;
+    justify-content: center;
+}
+
+.admin-name-text{
+    float:right;
+    font-size:20px;
+    font-weight:500;
+    margin-top:50px;
+    color:#000;
+}
+.add-user-link{
+    background: linear-gradient(to right,#372c3a,#e14f80);
+    color:#fff;
+    font-size:18px;
+    width:100px;
+    border-radius: 25px;
+    padding:10px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.tab-components{
+    background: #000;
+    height: 100vh;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background-color: #000 !important;
+}
+
+.nav-link {
+    color:#fff !important;
+    cursor: pointer;
+}
+
+.table-content{
+    margin:0 30px;
+}
+
+.nav{
+
+    color:#e14f80 !important;
+    font-size: 24px !important;
+    padding-left: 20px;
+}
+
+.add-project-link{
+    background: linear-gradient(to right,#372c3a,#e14f80);
+    color:#fff;
+    font-size:18px;
+    width:200px;
+    border-radius: 25px;
+    padding:10px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.search-add{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-bar{
+    margin:50px 0px;
+}
+
+.main-project{
+    overflow-y: hidden;
+    height: calc(100vh - 80px);
+}
