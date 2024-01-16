@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios";
 import "../../App.js";
 import valid from "../valid";
+import { toast, ToastContainer } from 'react-toastify';
+
+ 
+// Import toastify css file
+import "react-toastify/dist/ReactToastify.css";
 const useForm = (submitForm) => {
     const navigate = useNavigate()
     const [values, setValues] = useState({
@@ -45,7 +50,7 @@ const useForm = (submitForm) => {
                 .then(res => {
                     if (res.data.isRegistered) {
 
-                        alert(res.data.message)
+                       
                         console.log(res.data)
                         //localStorage.setItem('currentUser', JSON.stringify(res.data))
                         // getUsers();
@@ -63,7 +68,7 @@ const useForm = (submitForm) => {
 
                     } else {
                         
-                        alert(res.data.message)
+                        toast.error(res.data.message)
 
                     }
                 })

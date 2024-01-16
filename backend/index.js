@@ -322,19 +322,60 @@ app.get("/tasks", async (req, res) => {
         }
         // console.log(tasks)
         return res.status(200).json
-
             ({
                 success: true,
                 tasks: tasks
             })
-
     })
-
 })
 
 
-//get All Users
+//get task by id
 
+// get User By Id
+app.get('/tasks/:id', (req, res) => {
+
+
+
+    let userId = req.params.id;
+    console.log(userId)
+
+    User.findById(userId, (err, users) => {
+        if (err) {
+            return res.status(400).json({ success: false, err })
+        }
+    //   res.status(200).json
+    //         ({
+    //             success: true,
+    //             users
+    //         })
+            const usernameToSearch=users.firstname
+            Task.find({'username':usernameToSearch}).exec((err, tasks) => {
+                console.log(tasks);
+
+                // for(let i=0;i<tasks.length;i++){
+                //     console.log("cominggg",tasks[i].username,usernameToSearch);
+                //     if(tasks[i].username==usernameToSearch){
+                //          console.log("tasksss",tasks[i])                                                                                                                                          
+                //     }
+                // }
+                // console.log("err",err,tasks,usernameToSearch)
+                if (err) {
+                    return res.status(400).json({
+                        success: false,
+                        error: err
+                    });
+                }
+                return res.status(200).json({
+                    success: true,
+                    tasks: tasks
+                });
+               
+            });
+    })
+})
+
+//get All Users
 app.get('/users', (req, res) => {
     User.find({ role: { $ne: 'admin' } }).exec((err, users) => {
 
@@ -353,6 +394,7 @@ app.get('/users', (req, res) => {
                 success: true,
                 users: users
             })
+
 
     })
 })

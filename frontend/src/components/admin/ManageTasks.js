@@ -251,15 +251,6 @@ function ViewTasks() {
 
       {show && (
         <>
-
-          {/* <div style={{ marginTop: '30px' }}>
-
-            <a style={{ float: 'right' }} className='add-user-link' onClick={() => setShow(!show)}>Manage Tasks</a>
-
-          </div> */}
-
-          {/* <AddTask /> */}
-
           <div className="add-project">
             <div className="app-wrapper">
               <div className='close-icon' onClick={() => setShow(!show)}>

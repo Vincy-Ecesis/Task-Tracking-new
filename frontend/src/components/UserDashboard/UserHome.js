@@ -14,6 +14,7 @@ import Navbar from '../Navbar/Navbar';
 import Report from '../Report/Report';
 import ManageTasks from './ManageTasks';
 import ManageUsers from './ManageProfile.js';
+import ManageDashboard from './ManageDashboard.js';
 // import Dashboard from './dashboard';
 // import { MDBContainer } from "mdb-react-ui-kit";
 
@@ -32,21 +33,21 @@ const UserHome = () => {
                     <Col sm={2} className="tab-components">
                         <Nav variant="pills" className="flex-column">
                             <Nav.Item>
-                                <Nav.Link eventKey="first">Home</Nav.Link>
+                                <Nav.Link eventKey="first">Dashboard</Nav.Link>
                             </Nav.Item>
                     
-                            <Nav.Item>
+                            {/* <Nav.Item>
                                 <Nav.Link eventKey="second">Manage Profile</Nav.Link>
-                            </Nav.Item>
+                            </Nav.Item> */}
                             <Nav.Item>
                                 <Nav.Link eventKey="fourth">Manage Tasks</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
                                 <Nav.Link eventKey="fifth">Reports</Nav.Link>
                             </Nav.Item>
-                            <Nav.Item>
+                            {/* <Nav.Item>
                                 <Nav.Link eventKey="sixth">Logout</Nav.Link>
-                            </Nav.Item>
+                            </Nav.Item> */}
                         </Nav>
                     </Col>
                     <Col sm={9}>
@@ -55,7 +56,7 @@ const UserHome = () => {
 
                                 {/* <p className='admin-name-text'>Admin</p> */}
                                
-
+<ManageDashboard/>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second">
                             <ManageUsers />

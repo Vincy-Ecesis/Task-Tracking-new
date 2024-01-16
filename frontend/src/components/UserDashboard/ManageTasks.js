@@ -19,12 +19,41 @@ class ViewTasks extends Component {
     this.state = {
 
       tasks: [],
+      userId: ''
     }
   }
 
+
+
+
+
+
+getTasksById(id){
+      axios.get(`http://localhost:8000/tasks/${id}`).then(res => {
+     console.log("idd resd",res);
+     if (res.data.success) {
+      this.setState({
+        tasks: res.data.tasks,
+
+
+      });
+      //this.state.users.sort();
+      console.log("task by id", this.state.tasks);
+
+    }
+    });
+  }
+
+
   //lifecycle hook for get users
   componentDidMount() {
-    this.getTasks();
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser && currentUser.user) {
+      const user = currentUser.user;
+      const userId = user._id;
+      this.getTasksById(userId);
+      this.setState({ userId });
+    }
   }
 
   //get All tasks
@@ -37,8 +66,7 @@ class ViewTasks extends Component {
 
 
         });
-        //this.state.users.sort();
-        console.log("hgghhg", this.state.tasks);
+     
 
       }
     });

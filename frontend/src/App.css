@@ -121,3 +121,17 @@ button:active{
   transform: translate(-50%, -29%);
   padding: 0px;
 }
+
+.signup-link{
+  display: flex;
+  padding-top: 20px;
+  justify-content: center;
+  gap:5px;
+
+}
+
+.signup-link span{
+  color:#f80759;
+  cursor: pointer;
+ 
+}

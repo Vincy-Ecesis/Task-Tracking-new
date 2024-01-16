@@ -2,9 +2,20 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import Navbar from '../Navbar/Navbar';
+// Importing toastify module
+
+import { toast, ToastContainer } from 'react-toastify';
+
+ 
+// Import toastify css file
+import "react-toastify/dist/ReactToastify.css";
+ 
+// toast-configuration method,
+// it is compulsory method.
+
 
 const Login = ({ setLoginUser }) => {
-
+    
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -31,7 +42,7 @@ const Login = ({ setLoginUser }) => {
         // navigate('/admin')
         axios.post("http://localhost:8000/Login", user)
             .then(res => {
-                alert(res.data.message)
+              
                 setLoginUser(res.data.user)
                 localStorage.setItem('currentUser', JSON.stringify(res.data))
                 localStorage.setItem('token', JSON.stringify(res.data.token))
@@ -45,7 +56,11 @@ const Login = ({ setLoginUser }) => {
                     }
                 }
                 else{
-                    alert("authentication failed")
+                  
+                    toast.error(res.data.message)
+                    // toast.error("Authentication failed", { autoClose: 10000 });
+                    // toast.warning("Danger", { autoClose: 10000 });
+                    // toast("Hello Geeks");
                 }
                 // navigate('/admin')
                 // if (res.data.user.role === 'Admin') {
@@ -74,7 +89,7 @@ const Login = ({ setLoginUser }) => {
 
         <>
 
-            <div className="container login-section">
+            <div className=" login-section">
                 <div className="app-wrapper">
                     <div>
                         <h2 className="title">
@@ -107,13 +122,25 @@ const Login = ({ setLoginUser }) => {
 
                         </div>
                         <button type="btn" className="submit" onClick={login}>
-                            Login
+                            Sign In
                         </button>
-
-                        <p>New User,Create a Account</p>
-                        <button type="btn" className="submit" onClick={signup} >
-                            Sign Up
-                        </button>
+<div className='signup-link'>
+<p>Don't have an Account?</p>
+                        {/* <button type="btn" className="submit" onClick={signup} > */}
+                            <span onClick={signup}>Sign Up
+                            </span>
+</div>
+                       
+                        {/* </button> */}
+                        <ToastContainer  position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover />
                     </form>
                 </div>
             </div>

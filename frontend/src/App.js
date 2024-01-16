@@ -20,7 +20,10 @@ import AddProjectForm from './components/AddProjects/AddProjects';
 import EditProjects from './components/AddProjects/EditProjects';
 import UserHome from './components/UserDashboard/UserHome';
 
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+// toast.configure();
 function App() {
  
   const token = localStorage.getItem('token');
@@ -54,9 +57,11 @@ function App() {
             <Route path="/editproject/:id" element={<EditProjects />} exact />
             <Route path="/user" element={<UserHome />} exact />
             <Route path="/addtask" element={<AddTask/>} exact />
+            
           </Fragment>
         </Routes>
       </Router>
+   
     </div>
   );
 }

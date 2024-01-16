@@ -1,22 +1,22 @@
 import React from 'react'
 import useForm from "./submitAddUserForm";
 import Navbar from '../Navbar/Navbar';
+import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const Register = ({ submitForm }) => {
-
+    const navigate = useNavigate();
     const { handleChange, handleFormSubmit, values, errors } = useForm(submitForm);
 
+    const signin = () => {
 
+        navigate('/');
 
-
-  
-
-
-
+    }
     return (
         <>
 
-            <div className="container register-section">
+            <div className="register-section">
                 <div className="app-wrapper">
                     <div>
                         <h2 className="title" style={{ marginTop: '10px' }}>
@@ -100,16 +100,28 @@ const Register = ({ submitForm }) => {
 
                         </div>
                         {errors.cpassword && <p className="error">{errors.cpassword}</p>} */}
-
-
-
                         <button type="submit" className="submit" onClick={handleFormSubmit} >
-                            Register
+                            Sign Up
                         </button>
+                        <div className='signup-link'>
+<p>Already have an Account?</p>
+                        {/* <button type="btn" className="submit" onClick={signup} > */}
+                            <span onClick={signin}>Sign In
+                            </span>
+</div>
                         <br />
 
                     </form>
                 </div>
+                <ToastContainer  position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover />
             </div>
 
 
